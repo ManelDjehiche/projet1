@@ -67,22 +67,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 
+
 <div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
+
+	<h1><?php $this->lang->line('welcome');    ?></h1>
 
 	<div id="body">
-		<p>Bonjours tous le monde c manel</p>
+		<h2><?php $this->lang->line('title');    ?></h2>
+		<h5><?php $this->lang->line('title');    ?></h5> 
+		<h5><?php $this->lang->line('hello');    ?></h5>
+   
 
-		<p>this is my my </p> 
-		<code>application/views/welcome_message.php</code>
-
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/Welcome.php</code>
-
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
-	</div>
-
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+</div>
 </div>
 
 </body>

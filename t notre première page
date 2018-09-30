@@ -1,0 +1,84 @@
+[1mdiff --git a/application/config/config.php b/application/config/config.php[m
+[1mindex 493a993..1031522 100644[m
+[1m--- a/application/config/config.php[m
+[1m+++ b/application/config/config.php[m
+[36m@@ -23,7 +23,7 @@[m [mdefined('BASEPATH') OR exit('No direct script access allowed');[m
+ | a PHP script and you can easily do that on your own.[m
+ |[m
+ */[m
+[31m-$config['base_url'] = 'http://localhost/projet1/projet1/';[m
+[32m+[m[32m$config['base_url'] = '';[m
+ [m
+ /*[m
+ |--------------------------------------------------------------------------[m
+[1mdiff --git a/application/config/database.php b/application/config/database.php[m
+[1mindex 0cb4cdb..d22321e 100644[m
+[1m--- a/application/config/database.php[m
+[1m+++ b/application/config/database.php[m
+[36m@@ -76,9 +76,9 @@[m [m$query_builder = TRUE;[m
+ $db['default'] = array([m
+ 	'dsn'	=> '',[m
+ 	'hostname' => 'localhost',[m
+[31m-	'username' => 'root',[m
+[32m+[m	[32m'username' => '',[m
+ 	'password' => '',[m
+[31m-	'database' => 'projet1',[m
+[32m+[m	[32m'database' => '',[m
+ 	'dbdriver' => 'mysqli',[m
+ 	'dbprefix' => '',[m
+ 	'pconnect' => FALSE,[m
+[1mdiff --git a/application/language/AR/AR_lang.php b/application/language/AR/AR_lang.php[m
+[1mdeleted file mode 100644[m
+[1mindex 62d8478..0000000[m
+[1m--- a/application/language/AR/AR_lang.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,6 +0,0 @@[m
+[31m-<?php[m
+[31m-[m
+[31m-$lang['title']="صفحتنا الاولى";[m
+[31m-[m
+[31m-[m
+[31m-?>[m
+\ No newline at end of file[m
+[1mdiff --git a/application/language/FR/FR_lang.php b/application/language/FR/FR_lang.php[m
+[1mdeleted file mode 100644[m
+[1mindex d31cc42..0000000[m
+[1m--- a/application/language/FR/FR_lang.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,6 +0,0 @@[m
+[31m-<?php[m
+[31m-[m
+[31m-$lang['title']="c'est notre première page";[m
+[31m-[m
+[31m-[m
+[31m-?>[m
+\ No newline at end of file[m
+[1mdiff --git a/application/language/UK/UK_lang.php b/application/language/UK/UK_lang.php[m
+[1mdeleted file mode 100644[m
+[1mindex 4014013..0000000[m
+[1m--- a/application/language/UK/UK_lang.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,5 +0,0 @@[m
+[31m-<?php[m
+[31m-[m
+[31m-$lang['title']="It's our first Home page";[m
+[31m-[m
+[31m-?>[m
+\ No newline at end of file[m
+[1mdiff --git a/application/language/english/index.html b/application/language/english/index.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..b702fbc[m
+[1m--- /dev/null[m
+[1m+++ b/application/language/english/index.html[m
+[36m@@ -0,0 +1,11 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html>[m
+[32m+[m[32m<head>[m
+[32m+[m	[32m<title>403 Forbidden</title>[m
+[32m+[m[32m</head>[m
+[32m+[m[32m<body>[m
+[32m+[m
+[32m+[m[32m<p>Directory access is forbidden.</p>[m
+[32m+[m
+[32m+[m[32m</body>[m
+[32m+[m[32m</html>[m
