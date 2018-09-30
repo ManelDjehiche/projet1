@@ -1,5 +1,5 @@
 <?php
-
+define('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['page']="this is our first page";
 $lang['title']="Home";

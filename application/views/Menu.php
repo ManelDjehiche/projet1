@@ -1,7 +1,9 @@
 
-<ul>
-  <li><a href="<?php echo base_url();?>UK">English</a></li>
-  <li><a href="<?php echo base_url();?>FR">Frensh</a></li>
-  <li><a href="<?php echo base_url();?>AR">Arabe</a></li>
 
+<ul class="nav_menu">
+  <li><a href="<?php echo base_url()?><?php echo  $this->uri->segment(1)?>/about"><?php echo $this->lang->line('hello')?></a></li>
+  <li><a href="<?php echo base_url()?><?php echo  $this->uri->segment(1)?>/contact"><?php echo $this->lang->line('hello')?></a></li>
+  <li><a href="<?php echo base_url()?><?php echo  $this->uri->segment(1)?>/portfolio"><?php echo $this->lang->line('hello')?></a></li>
+  
 </ul>
+
