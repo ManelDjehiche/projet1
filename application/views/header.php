@@ -7,8 +7,8 @@
 <body>
 
 <ul>
-  <li><a href="<?php echo base_url()?>UK/about">English</a></li>
-  <li><a href="<?php echo base_url()?>FR/contact">Frensh</a></li>
-  <li><a href="<?php echo base_url()?>AR/portfolio">Arabe</a></li>
+  <li><a href="<?php echo base_url()?>index.php/UK/about">English</a></li>
+  <li><a href="<?php echo base_url()?>index.php/FR/about">Frensh</a></li>
+  <li><a href="<?php echo base_url()?>index.php/AR/about">Arabe</a></li>
   
 </ul>

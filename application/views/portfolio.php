@@ -2,7 +2,7 @@
 
 $this->load->view('header');
 
-$this->lang->line('menu');
+$this->load->view('menu');
 
 $this->lang->line('hello');
 
