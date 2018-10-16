@@ -15,9 +15,12 @@ class Dashboard extends MY_Controller {
 
 	public function index()
 	{
-
-		$data['title']='';
-		$this->load->view('about',$data);
+    
+    $data=$this->session->userdata('id_user');
+    $template['title']='Dachboard';
+    $template['view']='Dachboard/dachboard_view';
+    $template['data']=$data;
+	$this->load->view('Template',$template);
 		
 	}
 }
