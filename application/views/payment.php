@@ -18,7 +18,7 @@
         <h1>Confirm Purchase</h1>
     </div>
     <div class="payment">
-        <form method="POST" action="<?php echo base_url() ?>index.php/payment/checkout" >
+        <form method="POST" action="payment/checkout" >
             <div class="form-group owner">
                 <label for="owner">Owner</label>
                 <input type="text" name="owner" class="form-control" id="owner">
