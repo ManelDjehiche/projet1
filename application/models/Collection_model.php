@@ -20,7 +20,7 @@ class Collection_model extends CI_Model{
 
   }
 
-   function get_all_collection(){
+   function get_collection(){
 
      $query=$this->db->get('collection');
      $result=$query->result();

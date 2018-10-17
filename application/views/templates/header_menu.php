@@ -1,4 +1,3 @@
-<body>
     <!-- page load-->
     <div class="page-loader">
         <div class="loader"></div>

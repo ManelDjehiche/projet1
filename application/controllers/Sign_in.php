@@ -37,6 +37,7 @@ class Sign_in extends MY_Controller {
             echo "<pre>";
             print_r($this->session->all_userdata());
             echo "</pre>";
+            redirect(base_ur('dashboard'));
         }
         }
     }
@@ -52,7 +53,7 @@ class Sign_in extends MY_Controller {
         $language=$this->input->post('LANGUAGE_USER');
         $country=$this->input->post('COUNTRY_USER');
         $currency=$this->input->post('CURRENCY_USER');
-        $adress=$this->input->post('ADRESS_USER');
+        $adress=$this->input->post('ADDRESS_USER');
         $zip_code=$this->input->post('ZIP_CODE_USER');
         $city=$this->input->post('CITY_USER');
         $phone=$this->input->post('PHONE_USER');
@@ -71,7 +72,7 @@ class Sign_in extends MY_Controller {
             'CURRENCY_USER'=> $currency,
             'FIRST_NAME_USER' => $first_name,
             'LAST_NAME_USER'=> $last_name,
-            'ADRESS_USER'=> $adress,
+            'ADDRESS_USER'=> $adress,
             'ZIP_CODE_USER'=> $zip_code,
             'CITY_USER'=> $city,
             'PHONE_USER'=> $phone
@@ -102,7 +103,7 @@ class Sign_in extends MY_Controller {
         $language=$this->input->post('LANGUAGE_USER');
         $country=$this->input->post('COUNTRY_USER');
         $currency=$this->input->post('CURRENCY_USER');
-        $adress=$this->input->post('ADRESS_USER');
+        $adress=$this->input->post('ADDRESS_USER');
         $zip_code=$this->input->post('ZIP_CODE_USER');
         $city=$this->input->post('CITY_USER');
         $phone=$this->input->post('PHONE_USER');
@@ -118,7 +119,7 @@ class Sign_in extends MY_Controller {
             'CURRENCY_USER'=> $currency,
             'FIRST_NAME_USER' => $first_name,
             'LAST_NAME_USER'=> $last_name,
-            'ADRESS_USER'=> $adress,
+            'ADDRESS_USER'=> $adress,
             'ZIP_CODE_USER'=> $zip_code,
             'CITY_USER'=> $city,
             'PHONE_USER'=> $phone
@@ -145,9 +146,9 @@ class Sign_in extends MY_Controller {
 
     function delete(){
      
-        $id_user=$this->session->userdata('user');
+        $id = $this->uri->segment(3);
         $result=$this->sign_in_model->delete_user($id_user);
-        if($result) echo 'compte_supprimer';
+        if($result) redirect(base_ur(''));
         else echo 'compte non suprrimer';
 
     }

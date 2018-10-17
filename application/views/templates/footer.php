@@ -124,6 +124,9 @@
     Javascripts
     ==================================================
     -->
+    <script src="assets/jquery/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
     <script src="assets/template/vendor/jquery/dist/jquery.min.js"></script>
     <script src="assets/template/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/template/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
@@ -159,6 +162,16 @@
     <script type="text/javascript" src="assets/template/vendor/revolution/js/extensions/revolution.extension.migration.min.js"></script>
     <script type="text/javascript" src="assets/template/vendor/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
     <script src="assets/template/js/revo-slider-custom.js"></script>
+
+    <!--
+    data table bootstrap
+    -->
+
+   <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+    
+
     <!--
     End Document
     ==================================================

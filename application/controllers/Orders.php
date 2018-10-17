@@ -16,12 +16,9 @@ class Orders extends MY_Controller {
 	public function index()
 	{
     
-    $user=$this->session->userdata('id_user');
-    $data=$this->orders_model->get_orders($user);
     $template['title']='Orders';
-    $template['view']='Orders/order_view';
-    $template['data']=$data;
-	$this->load->view('Template',$template);
+    $template['page']='Orders/orders_view';
+	$this->load->view('template',$template);
 		
     }
     
@@ -73,9 +70,9 @@ class Orders extends MY_Controller {
     }
 
     function delete(){
-     $id=$this->input->post('ID_ORDER');
+     $id = $this->uri->segment(3);
      $result=$this->order_model->delete_order($id);
-     if($result) echo 'order spprimé';
+     if($result) redirect(base_ur('orders'));
      else echo 'order non supprimé';
  
     }
