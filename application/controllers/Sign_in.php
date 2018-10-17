@@ -12,6 +12,10 @@ class Sign_in extends MY_Controller {
        
     }
 
+    public function index(){
+        
+
+    }
 
     public function login(){
 
@@ -26,7 +30,6 @@ class Sign_in extends MY_Controller {
         if(empty($result)){
             echo 'c pas toi!!!';
         }
-        
         else{
             echo 'ouii c toi';
             $ok=array('Logged_in'=> true,'user'=> $result);
@@ -35,10 +38,7 @@ class Sign_in extends MY_Controller {
             print_r($this->session->all_userdata());
             echo "</pre>";
         }
-
         }
-
-
     }
 
 

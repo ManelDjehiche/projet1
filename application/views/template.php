@@ -7,7 +7,8 @@ $this->load->view('templates/header');
 
 <?php
 
-$this->load->view($page);
+$this->load->view($page,$data);
+
 
 ?>
 <?php

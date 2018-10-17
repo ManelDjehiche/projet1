@@ -38,11 +38,11 @@
                     </div>
                     <div class="form-group">
                         <div class="help-block with-errors"></div>
-                        <input class="au-input au-input-2" type="text" name="FIRST_USER" id="FIRST_USER" placeholder="First Name" required data-error="first name is required.">
+                        <input class="au-input au-input-2" type="text" name="FIRST_NAME_USER" id="FIRST_NAME_USER" placeholder="First Name" required data-error="first name is required.">
                     </div>
                     <div class="form-group">
                         <div class="help-block with-errors"></div>
-                        <input class="au-input au-input-2" type="text" name="LAST_USER" id="LAST_USER" placeholder="Last Name" required data-error="last name is required.">
+                        <input class="au-input au-input-2" type="text" name="LAST_NAME_USER" id="LAST_NAME_USER" placeholder="Last Name" required data-error="last name is required.">
                     </div>
                     <div class="form-group">
                         <div class="help-block with-errors"></div>

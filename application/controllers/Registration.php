@@ -19,8 +19,8 @@ class Registration extends MY_Controller {
         $data['PASSWORD_USER']=$this->input->post('PASSWORD_USER');
         $data['COUNTRY_USER']=$this->input->post('COUNTRY_USER');
         $data['CURRENCY_USER']=$this->input->post('CURRENCY_USER');
-        $data['FIRST_USER']=$this->input->post('FIRST_USER');
-        $data['LAST_USER']=$this->input->post('LAST_USER');
+        $data['FIRST_NAME_USER']=$this->input->post('FIRST_NAME_USER');
+        $data['LAST_NAME_USER']=$this->input->post('LAST_NAME_USER');
         $data['ADDRESS_USER']=$this->input->post('ADDRESS_USER');
         $data['ZIP_CODE_USER']=$this->input->post('ZIP_CODE_USER');
         $data['CITY_USER']=$this->input->post('CITY_USER');
@@ -28,9 +28,10 @@ class Registration extends MY_Controller {
 
         $submit = $this->input->post('submit');
         if(isset($submit)){
-            print_r($data);
-
+            // print_r($data);
+            redirect(base_url("Profile"));
         }
+
 	}
 }
 ?>
