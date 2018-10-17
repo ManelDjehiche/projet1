@@ -16,14 +16,23 @@ class Sign_in_model extends CI_Model{
    function login($array){
    
     $email=$array['EMAIL_USER'];
-    $passwod=$array['PASSWORD_USER'];
+    $password=$array['PASSWORD_USER'];
     $where= array('EMAIL_USER'=> $email,'PASSWORD_USER'=>$password);
     $this->db->where($where);
     $query=$this->db->get('user');
     $result=$query->result();
     if(empty($result)) return false;
     else return $result; 
-   
+  }
+
+  function get_user($array){
+    $id = $array['ID_USER'];
+    $where = array('ID_USER'=>$id);
+    $this->db->where($where);
+    $query=$this->db->get('user');
+    $result=$query->result();
+    if(empty($result)) return false;
+    else return (array)$result['0']; 
   }
 
   function create_user($array){

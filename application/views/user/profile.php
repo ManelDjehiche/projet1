@@ -64,7 +64,7 @@
                                
                               <div class="form-group row">
                                 <div class="offset-4 col-8">
-                                  <button name="submit" type="submit" class="btn btn-primary">Update My Profile</button>
+                                  <button name="submit" id="submit" type="submit" class="btn btn-primary">Update My Profile</button>
                                 </div>
                               </div>
                             </form>

@@ -22,6 +22,10 @@ class Products extends MY_Controller {
     
 
     function create(){
+        $template['title']='Products';
+        $template['page']="product/add_product.php";
+        $template['data']="";
+        $this->load->view("template",$template);
 
         
         $id_user=$this->session->userdata('user');
