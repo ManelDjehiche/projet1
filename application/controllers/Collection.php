@@ -15,13 +15,10 @@ class Collection extends MY_Controller {
 
 	public function index()
 	{
-    
-    $user=$this->session->userdata('id_user');
-    $data=$this->collection_model->get_collection($user);
-    $template['title']='Collections';
-    $template['view']='Collection/collection_view';
-    $template['data']=$data;
-	$this->load->view('Template',$template);
+
+    $template['title']='Collection';
+    $template['page']='Collection/collection_view.php';
+	$this->load->view("template",$template);
 		
     }
     
@@ -105,11 +102,26 @@ class Collection extends MY_Controller {
 }
 
     function delete(){
-    $this->input->post('ID_COLLECTION');
+    $id = $this->uri->segment(3);
     $result=$this->collection_model->delete_collection($id);
-    if($result) echo 'collection spprimé';
+    if($result) redirect(base_ur('collection'));
     else echo 'collection non supprimé';
 
    }
+
+
+
+   function products(){
+    $id=$this->input->post('ID_COLLECTION');
+    $result=$this->collection_model->get_products_collection($id);
+    if(!empty($result)){
+    $template['title']='Products in'.''.$result->NAME_COLLECTION;
+    $template['page']='Collection/products_in_collection';
+    $template['data']=$result;
+    $this->load->view('template',$template);
+    }
+    else echo 'empty';
+   }
+
 }
 ?>

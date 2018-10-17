@@ -19,12 +19,12 @@ class Orders_model extends CI_Model{
 
   }
 
-   function get_all_orders($user){
+   function get_orders($user){
     
      $this->db->select('*');
      $this->db->from('orders');
-     $this->db->join('product','orderID_PRODUCT = productID_PRODUCT');
-     $this->where('product.D_USER',$user);
+     $this->db->join('product',' orders.ID_PRODUCT = product.ID_PRODUCT ');
+     $this->db->where('ID_USER',$user);
      $query=$this->db->get();
      $result=$query->result();
      return $result;
@@ -56,7 +56,10 @@ class Orders_model extends CI_Model{
 
   }
 
-
+ function generate_id(){
+   return uniqid(time().mt_rand(), true);
+ }
+ 
 }
 
 ?>

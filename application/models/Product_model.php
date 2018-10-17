@@ -92,6 +92,7 @@ class Product_model extends CI_Model{
     return uniqid(time().mt_rand(), true);
   }
 
+
 }
 
 ?>

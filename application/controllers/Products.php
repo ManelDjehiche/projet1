@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Product extends MY_Controller {
+class Products extends MY_Controller {
 
     public function __construct()
     {
@@ -12,15 +12,11 @@ class Product extends MY_Controller {
        
     }
 
-	public function index()
-	{
-    
-    $user=$this->session->userdata('id_user');
-    $data=$this->product_model->get_product($user);
+	public function index(){
+
     $template['title']='Products';
-    $template['view']='Product/product_view';
-    $template['data']=$data;
-	$this->load->view('Template',$template);
+    $template['page']="product/product_view.php";
+    $this->load->view("template",$template);
 		
     }
     
@@ -167,13 +163,14 @@ class Product extends MY_Controller {
    }
 
     function delete(){
-    $id=$this->input->post('ID_PRODUCT');
+    $id = $this->uri->segment(3);
     $result=$this->product_model->delete_product($id);
-    if($result) echo 'product spprimé';
+    if($result) redirect(base_ur('products'));
     else echo 'product non supprimé';
 
    }
 
+   
    
 
 

@@ -17,6 +17,7 @@
     <link href="assets/template/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/template/vendor/elegant-icons/style.css" rel="stylesheet">
     <link href="assets/template/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/template/vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="assets/template/vendor/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="assets/template/vendor/css-hamburgers/dist/hamburgers.min.css" rel="stylesheet">
     <link href="assets/template/vendor/chosen/chosen.css" rel="stylesheet">
@@ -30,6 +31,25 @@
     <link href="assets/template/css/switcher.css" rel="stylesheet">
     <link href="assets/template/css/colors/primary.css" rel="stylesheet" id="colors">
     <link href="assets/template/css/retina.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    
+    <!--
+    portfolio
+    ==================================================
+    -->
+    <link href="assets/template/css/3-col-portfolio.css" rel="stylesheet">
+
+    <!--
+    data table
+    ==================================================
+    -->
+    <script src="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css"></script>
+
+
+
+<!-- Custom styles for this template -->
+    
     <!--
     Favicons
     ==================================================
