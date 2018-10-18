@@ -64,7 +64,7 @@ class Registration extends MY_Controller {
                     'CURRENCY_USER'=> $currency,
                     'FIRST_NAME_USER' => $first_name,
                     'LAST_NAME_USER'=> $last_name,
-                    'ADRESS_USER'=> $adress,
+                    'ADDRESS_USER'=> $adress,
                     'ZIP_CODE_USER'=> $zip_code,
                     'CITY_USER'=> $city,
                     'PHONE_USER'=> $phone
