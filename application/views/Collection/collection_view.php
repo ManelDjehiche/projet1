@@ -3,7 +3,7 @@
     <div class="container">
 
       <!-- Page Heading -->
-      <h1 class="my-4">Page Heading
+      <h1 class="my-4">All Collections
         <small>Secondary Text</small>
         <a href="collection/create" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add collection</a>
       

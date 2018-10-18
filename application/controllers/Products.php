@@ -13,10 +13,17 @@ class Products extends MY_Controller {
     }
 
 	public function index(){
+    
+    $user=$this->session->userdata('user');
+    $result=$this->product_model->get_products($user);
+    if(!empty($result)){
 
-    $template['title']='Products';
-    $template['page']="product/product_view.php";
-    $this->load->view("template",$template);
+        $template['title']='Products';
+        $template['page']="product/product_view.php";
+        $template['data']=$result;   
+        $this->load->view("template",$template);
+
+    }
 		
     }
     
@@ -167,15 +174,27 @@ class Products extends MY_Controller {
    }
 
     function delete(){
-    $id = $this->uri->segment(3);
-    $result=$this->product_model->delete_product($id);
+    $id=$this->uri->segment(3);
+    $array=array('ID_PRODUCT' => $id);
+    $result=$this->product_model->delete_product($array);
     if($result) redirect(base_ur('products'));
     else echo 'product non supprimé';
 
    }
 
    
-   
+   function edit(){
+    $id=$this->uri->segment(3);
+    $array=array('ID_PRODUCT' => $id);
+    $result=$this->product_model->get_one_product($array);
+    if(!empty($result)){
+    $template['title']='Edit Product' ;
+    $template['page']='Product/edit_product';
+    $template['data']=$result;
+    $this->load->view('template',$template);
+    }
+    else echo 'empty';
+   }
 
 
 }

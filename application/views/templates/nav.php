@@ -12,19 +12,19 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="collection">Collection</a>
+              <a class="nav-link" href="<?php echo base_url(); ?>collection">Collection</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="products">Product</a>
+              <a class="nav-link" href="<?php echo base_url(); ?>products">Product</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="orders">Orderst</a>
+              <a class="nav-link" href="<?php echo base_url(); ?>orders">Orderst</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="help">Help</a>
+              <a class="nav-link" href="<?php echo base_url(); ?>help">Help</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="account">Profile</a>
+              <a class="nav-link" href="<?php echo base_url(); ?>account">Profile</a>
               
             </li>
           </ul>

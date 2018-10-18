@@ -32,6 +32,7 @@ class Collection extends MY_Controller {
         $description=$this->input->post('DESCRIPTION_COLLECTION');
         $header=$this->input->post('HEADER_COLLECTION');
         $background=$this->input->post('BACKGROUND_COLLECTION');
+        $blurryimage=$this->input->post('BLURRY_IMAGE_COLLECTION');
         $button_color_collection=$this->input->post('BUTTON_COLLOR_COLLECTION');
         
 
@@ -48,6 +49,7 @@ class Collection extends MY_Controller {
             'DESCRIPTION_COLLECTION'=> $description,
             'HEADER_COLLECTION' => $header,
             'BACKGROUND_COLLECTION'=> $background,
+            'BLURRY_IMAGE_COLLECTION' => $blurryimage,
             'BUTTON_COLLOR_COLLECTION'=> $button_color_collection
         
         
@@ -75,6 +77,7 @@ class Collection extends MY_Controller {
         $description=$this->input->post('DESCRIPTION_COLLECTION');
         $header=$this->input->post('HEADER_COLLECTION');
         $background=$this->input->post('BACKGROUND_COLLECTION');
+        $blurryimage=$this->input->post('BLURRY_IMAGE_COLLECTION');
         $button_color_collection=$this->input->post('BUTTON_COLLOR_COLLECTION');
 
         if(isset($submit)){
@@ -85,6 +88,7 @@ class Collection extends MY_Controller {
                 'DESCRIPTION_COLLECTION'=> $description,
                 'HEADER_COLLECTION' => $header,
                 'BACKGROUND_COLLECTION'=> $background,
+                'BLURRY_IMAGE_COLLECTION' => $blurryimage,
                 'BUTTON_COLLOR_COLLECTION'=> $button_color_collection           
             
             );
@@ -103,7 +107,8 @@ class Collection extends MY_Controller {
 
     function delete(){
     $id = $this->uri->segment(3);
-    $result=$this->collection_model->delete_collection($id);
+    $array=array('ID_COLLECTION' => $id);
+    $result=$this->collection_model->delete_collection($array);
     if($result) redirect(base_ur('collection'));
     else echo 'collection non supprimé';
 
@@ -112,8 +117,9 @@ class Collection extends MY_Controller {
 
 
    function products(){
-    $id=$this->input->post('ID_COLLECTION');
-    $result=$this->collection_model->get_products_collection($id);
+    $id=$this->uri->segment(3);
+    $array=array('ID_COLLECTION' => $id);
+    $result=$this->collection_model->get_products_collection($array);
     if(!empty($result)){
     $template['title']='Products in'.''.$result->NAME_COLLECTION;
     $template['page']='Collection/products_in_collection';
@@ -123,5 +129,20 @@ class Collection extends MY_Controller {
     else echo 'empty';
    }
 
+
+   function edit(){
+    $id=$this->uri->segment(3);
+    $array=array('ID_COLLECTION' => $id);
+    $result=$this->collection_model->get_one_collection($array);
+    var_dump($result);
+    echo "heeeeeeeere".$result[0]['NAME_COLLECTION'];
+    if(!empty($result)){
+    $template['title']='collection';
+    $template['page']='Collection/edit_collection';
+    $template['data']=$result;
+    $this->load->view('template',$template);
+    }
+    else echo 'empty';
+   }
 }
 ?>
