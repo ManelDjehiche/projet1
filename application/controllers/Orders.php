@@ -70,8 +70,9 @@ class Orders extends MY_Controller {
     }
 
     function delete(){
-     $id = $this->uri->segment(3);
-     $result=$this->order_model->delete_order($id);
+     $id=$this->uri->segment(3);
+     $array=array('ID_ORDER' => $id);
+     $result=$this->order_model->delete_order($array);
      if($result) redirect(base_ur('orders'));
      else echo 'order non supprimé';
  

@@ -20,11 +20,11 @@ class Product_model extends CI_Model{
 
   }
 
-   function get_all_product($user){
+   function get_products($user){
      
      $this->db->where('ID_USER',$user);
      $query=$this->db->get('product');
-     $result=$query->result();
+     $result=$query->result_array();
      return $result;
 
    }
@@ -35,7 +35,7 @@ class Product_model extends CI_Model{
     /* prend id user et element cherché */
     $this->db->where($array);
     $query=$this->db->get('product');
-    $result=$query->result();
+    $result=$query->result_array();
     return $result;
 
   }
@@ -48,9 +48,9 @@ class Product_model extends CI_Model{
 
   }
 
-  function delete_product($id){
+  function delete_product($array){
    
-    $this->db->where('ID_PRODUCT',$id);
+    $this->db->where($array);
     if($this->db->delete('product')) return true;
     else return false;
 

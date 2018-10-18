@@ -20,10 +20,11 @@ class Collection_model extends CI_Model{
 
   }
 
-   function get_collection(){
-
+   function get_collection($array){
+     
+     $this->db->where($array);
      $query=$this->db->get('collection');
-     $result=$query->result();
+     $result=$query->result_array();
      return $result;
    }
 
@@ -32,7 +33,7 @@ class Collection_model extends CI_Model{
     /* prend id_user et id collection */
     $this->db->where($array);
     $query=$this->db->get('collection');
-    $result=$query->result();
+    $result=$query->result_array();
     return $result;
 
   }
@@ -45,7 +46,7 @@ class Collection_model extends CI_Model{
     $this->db->join('product','product.ID_COLLECTION = collection.ID_COLLECTION');
     $this->db->where('collection.ID_USER',$user);
     $query=$this->db->get();
-    $result=$query->result();
+    $result=$query->result_array();
     return $result;
 
   }
@@ -54,16 +55,16 @@ class Collection_model extends CI_Model{
   function update_collection($array){
   
     /* prend les attribut a modeifier */
-    $this->db->where('ID_COLLECTION',$array['ID_COLLECTION']);
+    $this->db->where($array);
     if($this->db->update('collection',$array)) return true;
     else return false;
 
   }
 
-  function delete_collection($id){
+  function delete_collection($array){
    
     /* prend la condition de la suppression */
-    $this->db->where('ID_COLLECTION',$id);
+    $this->db->where($array);
     if($this->db->delete('collection')) return true;
     else return false;
 
