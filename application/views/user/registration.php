@@ -1,9 +1,8 @@
 <section class="section bg-white p-t-70 p-b-40">
         <div class="container">
-            <h3 class="text-block text-black text-bold text-med m-b-40">Registration</h3>
+            <h3 class="text-block text-black text-bold text-med text-center m-b-40">Registration</h3>
             <div class="messages" id="status"></div>
             <form method="post" action="Registration" name="registration" id="registration-form" role="form" data-toggle="validator">
-                <h4 text-block text-black text-bold text-med m-b-40>User Info</h4>
                 <div>
                     <div class="form-group">
                         <div class="help-block with-errors"></div>
@@ -14,24 +13,24 @@
                         <input class="au-input au-input-2" type="password" name="PASSWORD_USER" id="PASSWORD_USER" placeholder="Password"  required data-error="Valid email is required.">
                     </div>
                     <div class="form-group">
-                        <select class="form-control" name="COUNTRY_USER" id="COUNTRY_USER" >
-                            <option selected>Country</option>
+                        <select class="au-input au-input-2" name="COUNTRY_USER" id="COUNTRY_USER"  >
+                            <option value="" hidden selected disabled>select your country</option>
                             <option value="United Stats">United Stats</option>
                             <option value="United Kingdom">United Kingdom</option>
                             <option value="France">France</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" name="CURRENCY_USER" id="CURRENCY_USER" >
-                            <option selected>currency</option>
+                        <select class="au-input au-input-2" name="CURRENCY_USER" id="CURRENCY_USER" >
+                            <option value="" hidden selected disabled>select your currency</option>
                             <option value="euro">euro</option>
                             <option value="dollar">dollar</option>
                             <option value="pound">pound</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" name="LANGUAGE_USER" id="LANGUAGE_USER" >
-                            <option selected>language</option>
+                        <select class="au-input au-input-2" name="LANGUAGE_USER" id="LANGUAGE_USER" >
+                            <option value="" hidden selected disabled>select your language</option>
                             <option value="english">english</option>
                             <option value="french">french</option>
                         </select>
@@ -65,9 +64,13 @@
 
                 
                
-               
-                <input class="au-btn au-btn-primary" type="submit" name = "submit" id="submit" value="Next">
-            </form>
+                <div class="block-left">
+                <input class="au-btn au-btn-primary" type="submit" name = "submit" id="submit" value="Register">
+            </div>
+            <div class="block-left">
+            <p class=" text-block text-med-sm">you already have an account? <a href="login">Login to your account</a></p>
+            </div>
+                </form>
             
         </div>
     </section>

@@ -43,6 +43,19 @@
 		</div>
 	</div>
 </section>
+ <!-- section / start-->
+ <div class="section bg-light p-t-100 p-b-100 cta-section-1 cta-section-2">
+            <div class="container">
+                <div class="block-left">
+                        <a class="au-btn au-btn-primary " href="login">Login</a>
+                </div>
+                <div class="block-right">
+                    <a class="au-btn au-btn-border au-btn-border-primary" href="registration">Register</a>
+                </div>
+                
+            </div>
+        </div>
+        <!-- section / end-->
 <!-- section / start-->
 <div class="section bg-primary p-t-30 p-b-30 cta-section-1 cta-section-2">
 	<div class="container">

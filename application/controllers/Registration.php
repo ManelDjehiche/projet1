@@ -56,14 +56,15 @@ class Registration extends MY_Controller {
                     'ADDRESS_USER'=> $adress,
                     'ZIP_CODE_USER'=> $zip_code,
                     'CITY_USER'=> $city,
-                    'PHONE_USER'=> $phone
+                    'PHONE_USER'=> $phone,
+                    'STATUS_ACCOUNT_USER'=>0
                 
                 );
         
                 $result=$this->sign_in_model->create_user($array);
                 if($result){
                     if($this->sign_in_model->send_mail($email)){
-                        echo "email is sent";
+                        redirect(base_url('registration/confirm'));
                     }else{
                         echo "email is not sent";
                     }
@@ -76,7 +77,16 @@ class Registration extends MY_Controller {
                 }
         public function confirm_mail($key){
             $result = $this->sign_in_model->verify_email($key);
-            
+            if($result['status']=='success'){
+                redirect(base_url('login'));
+            }
+        }
+        public function confirm(){
+            $template['page']="user/confirm_page.php";
+            $template['data']="";
+            $template['title']="";
+
+            $this->load->view("template",$template);
         }
 
     
