@@ -20,27 +20,16 @@ class Registration extends MY_Controller {
 
         $this->load->view("template",$template);
 
-        // $data['EMAIL_USER']=$this->input->post('EMAIL_USER');
-        // $data['PASSWORD_USER']=$this->input->post('PASSWORD_USER');
-        // $data['COUNTRY_USER']=$this->input->post('COUNTRY_USER');
-        // $data['CURRENCY_USER']=$this->input->post('CURRENCY_USER');
-        // $data['FIRST_NAME_USER']=$this->input->post('FIRST_NAME_USER');
-        // $data['LAST_NAME_USER']=$this->input->post('LAST_NAME_USER');
-        // $data['ADDRESS_USER']=$this->input->post('ADDRESS_USER');
-        // $data['ZIP_CODE_USER']=$this->input->post('ZIP_CODE_USER');
-        // $data['CITY_USER']=$this->input->post('CITY_USER');
-        // $data['PHONE_USER']=$this->input->post('PHONE_USER');
-
         $submit = $this->input->post('submit');
         if(isset($submit)){
-            // print_r($data);
+
             $this->sign_in();
         }
 
     }
     
     public function sign_in(){
-        /* les donner de user*/
+
                 $id_user=$this->sign_in_model->generate_id();
                 $email=$this->input->post('EMAIL_USER');
                 $password=md5($this->input->post('PASSWORD_USER'));
@@ -73,7 +62,11 @@ class Registration extends MY_Controller {
         
                 $result=$this->sign_in_model->create_user($array);
                 if($result){
-                    echo 'compte crrer';
+                    if($this->sign_in_model->send_mail($email)){
+                        echo "email is sent";
+                    }else{
+                        echo "email is not sent";
+                    }
                 }
                 
                 else{
@@ -81,6 +74,12 @@ class Registration extends MY_Controller {
                 }
         
                 }
+        public function confirm_mail($key){
+            $result = $this->sign_in_model->verify_email($key);
+            
+        }
+
+    
         
         
             

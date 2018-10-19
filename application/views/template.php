@@ -4,8 +4,8 @@ $this->load->view('templates/header');
 
 <?php
 
-//$title['title']=$title;
-//$this->load->view('templates/nav',$title);
+$this->load->view('templates/nav',$title);
+// $this->load->view("templates/header_menu");
 
 ?>
 
