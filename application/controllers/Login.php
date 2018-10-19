@@ -24,6 +24,7 @@ class Login extends MY_Controller{
           $this->login();
         }
   }
+
   public function login(){
 
     $email=$this->input->post('EMAIL_USER');
@@ -31,17 +32,17 @@ class Login extends MY_Controller{
 
     $array=array('EMAIL_USER'=> $email,'PASSWORD_USER'=> $password);
     $result=$this->sign_in_model->login($array);
-    if(empty($result)){
-        echo 'c pas toi!!!';
+    if($result['status']=='error'){
+        echo $result['message'];
     }
     else{
-        echo 'ouii c toi';
+        echo $result['message'];
         $ok=array('Logged_in'=> true,'user'=> $result);
         $this->session->set_userdata($ok);
         echo "<pre>";
         print_r($this->session->all_userdata());
         echo "</pre>";
-        redirect(base_url('Profile'));
+        redirect(base_url('shop'));
     }
     
 }

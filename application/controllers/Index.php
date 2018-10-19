@@ -9,9 +9,11 @@ class Index extends CI_Controller{
        
     }
     public function index(){
-		$this->load->view('header.php');
-		$this->load->view('index.php');
-		$this->load->view('footer.php');
+		$template['page']="index";
+        $template['title']="index";
+		$template['data']="";
+		// $this->load->view("templates/header_menu");
+        $this->load->view("template",$template);
 	}
 
 
