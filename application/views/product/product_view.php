@@ -18,10 +18,10 @@
             <a href="<?php echo base_url()?>products/edit/<?php echo $products['ID_PRODUCT'] ?>"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="products/edit/<?php echo $products['ID_PRODUCT'] ?>">Edit product</a>
+                <a href="products/edit/<?php echo $products['ID_PRODUCT'] ?>"><?php echo $products['TITLE_PRODUCT'] ?></a>
               </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>
-              <a  href="<?php echo base_url()?>collection/delete/<?php echo $products['ID_PRODUCTS'] ?>" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Delete products</a>
+              <p class="card-text"><?php echo $products['DESCRIPTION_PRODUCT'] ?></p>
+              <a onclick="delete_product('<?php echo $products['ID_PRODUCT'] ?>')" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Delete products</a>
 
             </div>
           </div>
@@ -38,5 +38,25 @@
     
     
   </body>
+<script>
+function delete_product(id){
+alert('Are you sure ?');
+alert('1');
+var base_url='';
+$.ajax({
+  url: base_url+'products/delete',
+  type:'POST',
+  data:{'ID_PRODUCT': id},
+  success:function(data){
+   alert(data);
+  },
+  error:function(data){
+    alert(data.responseText);
+  }
+});
 
+
+}
+
+</script>
 

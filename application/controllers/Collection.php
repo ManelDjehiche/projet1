@@ -24,10 +24,15 @@ class Collection extends MY_Controller {
     
 
     public function create(){
-        
-        $id_user=$this->session->userdata('user');
+    
+    $erroempty=false;
+       
+        /*$id_user=$this->session->userdata('user');*/
         $id_collection=$this->collection_model->generate_id();
-        $id_shop=$this->session->userdata('shop');
+        echo 'idddd collection'.$id_collection;
+        /*$id_shop=$this->session->userdata('shop');*/
+        $id_user='1';
+        $id_shop='1';
         $name=$this->input->post('NAME_COLLECTION');      
         $description=$this->input->post('DESCRIPTION_COLLECTION');
         $header=$this->input->post('HEADER_COLLECTION');
@@ -35,14 +40,17 @@ class Collection extends MY_Controller {
         $blurryimage=$this->input->post('BLURRY_IMAGE_COLLECTION');
         $button_color_collection=$this->input->post('BUTTON_COLLOR_COLLECTION');
         
+       
+        if(empty($name)){
+        echo '<span class="text-danger"> Fill in name collection !</span>'; 
+        $erroempty= true;
+        }
 
-        $submit=$this->input->post('SUBMIT');
 
-        if(isset($submit)){
-
+        if($erroempty == false){
         $array=array(
 
-            'ID_COLLECTION'=> $id_collection,
+            'ID_COLLECTION'=> '6',
             'ID_USER'=> $id_user,
             'ID_SHOP'=> $id_shop,
             'NAME_COLLECTION'=> $name,
@@ -55,19 +63,22 @@ class Collection extends MY_Controller {
         
         );
 
+        
         $result=$this->collection_model->insert_collection($array);
         if($result){
-            echo 'collection crrer';
+            echo '<b><span class="text-success">Collection'.' "'.$name.'" '.'created</span></b>';
         }
         
         else{
            echo 'collection non crrer';
         }
 
-        }
-
-
     }
+        echo '';
+
+        }
+    
+
 
 
     function update(){
@@ -80,6 +91,7 @@ class Collection extends MY_Controller {
         $blurryimage=$this->input->post('BLURRY_IMAGE_COLLECTION');
         $button_color_collection=$this->input->post('BUTTON_COLLOR_COLLECTION');
 
+        
         if(isset($submit)){
 
             $array=array(
@@ -144,5 +156,14 @@ class Collection extends MY_Controller {
     }
     else echo 'empty';
    }
+
+   function add(){
+
+    $template['title']='collection';
+    $template['page']='Collection/add_collection';
+    $template['data']='';
+    $this->load->view('template',$template);
+    
+}
 }
 ?>

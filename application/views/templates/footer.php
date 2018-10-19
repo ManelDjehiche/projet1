@@ -7,7 +7,7 @@
                         <div class="col-md-6">
                             <div class="footer-block-1">
                                 <div class="logo">
-                                    <img src="<?php base_url()?>assets/template/images/icons/ic-logo-02.png" alt="Consulting" />
+                                    <img src="<?php echo base_url()?>assets/template/images/icons/ic-logo-02.png" alt="Consulting" />
                                 </div>
                                 <div class="quick-link">
                                     <div class="row">
@@ -124,50 +124,50 @@
     Javascripts
     ==================================================
     -->
-    <script src="<?php base_url()?>assets/jquery/jquery.min.js"></script>
-    <script src="<?php base_url()?>assets/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo base_url()?>assets/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url()?>assets/js/bootstrap.bundle.min.js"></script>
 
-    <script src="<?php base_url()?>assets/template/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="<?php base_url()?>assets/template/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="<?php base_url()?>assets/template/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <script src="<?php base_url()?>assets/template/vendor/owl.carousel/dist/owl.carousel.min.js"></script>
-    <script src="<?php base_url()?>assets/template/vendor/headroom/headroom.min.js"></script>
-    <script src="<?php base_url()?>assets/template/vendor/matchHeight/dist/jquery.matchHeight-min.js"></script>
-    <script src="<?php base_url()?>assets/template/vendor/SmoothScroll/SmoothScroll.js"></script>
-    <script src="<?php base_url()?>assets/template/vendor/isotope/imagesloaded.pkgd.min.js"></script>
-    <script src="<?php base_url()?>assets/template/vendor/isotope/isotope.pkgd.min.js"></script>
-    <script src="<?php base_url()?>assets/template/vendor/plyr/plyr.min.js"></script>
-    <script src="<?php base_url()?>assets/template/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="<?php base_url()?>assets/template/vendor/jquery-accordion/js/jquery.accordion.js"></script>
-    <script src="<?php base_url()?>assets/template/vendor/chosen/chosen.jquery.js"></script>
-    <script src="<?php base_url()?>assets/template/vendor/waypoints/lib/jquery.waypoints.min.js"></script>
-    <script src="<?php base_url()?>assets/template/vendor/jquery.counterup/jquery.counterup.min.js"></script>
-    <script src="<?php base_url()?>assets/template/vendor/paroller.js/jquery.paroller.min.js"></script>
-    <script src="<?php base_url()?>assets/template/vendor/retinajs/dist/retina.min.js"></script>
-    <script src="<?php base_url()?>js/owl-custom.js"></script>
-    <script src="<?php base_url()?>assets/template/js/main.js"></script>
-    <script src="<?php base_url()?>assets/template/js/switcher-custom.js"></script>
-    <script src="<?php base_url()?>assets/template/vendor/revolution/js/jquery.themepunch.tools.min.js"></script>
-    <script src="<?php base_url()?>assets/template/vendor/revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/headroom/headroom.min.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/matchHeight/dist/jquery.matchHeight-min.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/SmoothScroll/SmoothScroll.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/isotope/imagesloaded.pkgd.min.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/isotope/isotope.pkgd.min.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/plyr/plyr.min.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/jquery-accordion/js/jquery.accordion.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/chosen/chosen.jquery.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/jquery.counterup/jquery.counterup.min.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/paroller.js/jquery.paroller.min.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/retinajs/dist/retina.min.js"></script>
+    <?php /*<script src="<?php echo base_url()?>js/owl-custom.js"></script> */ ?>
+    <script src="<?php echo base_url()?>assets/template/js/main.js"></script>
+    <script src="<?php echo base_url()?>assets/template/js/switcher-custom.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="<?php echo base_url()?>assets/template/vendor/revolution/js/jquery.themepunch.revolution.min.js"></script>
     <!--
     | (Load Extensions only on Local File Systems !
     | The following part can be removed on Server for On Demand Loading)
     -->
-    <script type="text/javascript" src="<?php base_url()?>assets/template/vendor/revolution/js/extensions/revolution.extension.video.min.js"></script>
-    <script type="text/javascript" src="<?php base_url()?>assets/template/vendor/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-    <script type="text/javascript" src="<?php base_url()?>assets/template/vendor/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-    <script type="text/javascript" src="<?php base_url()?>assets/template/vendor/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-    <script type="text/javascript" src="<?php base_url()?>assets/template/vendor/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-    <script type="text/javascript" src="<?php base_url()?>assets/template/vendor/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-    <script type="text/javascript" src="<?php base_url()?>assets/template/vendor/revolution/js/extensions/revolution.extension.migration.min.js"></script>
-    <script type="text/javascript" src="<?php base_url()?>assets/template/vendor/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-    <script src="<?php base_url()?>assets/template/js/revo-slider-custom.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>assets/template/vendor/revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>assets/template/vendor/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>assets/template/vendor/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>assets/template/vendor/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>assets/template/vendor/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>assets/template/vendor/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>assets/template/vendor/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>assets/template/vendor/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="<?php echo base_url()?>assets/template/js/revo-slider-custom.js"></script>
 
     <!--
     data table bootstrap
     -->
 
-   <script type="text/javascript" src="<?php base_url()?>assets/js/bootstrap.min.js"></script>
+   <script type="text/javascript" src="<?php echo base_url()?>assets/js/bootstrap.min.js"></script>
    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
     

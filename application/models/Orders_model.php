@@ -57,7 +57,7 @@ class Orders_model extends CI_Model{
   }
 
  function generate_id(){
-   return uniqid(time().mt_rand(), true);
+   return md5(uniqid(time().mt_rand(), true));
  }
  
 }
