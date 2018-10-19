@@ -21,14 +21,12 @@ class Collection extends MY_Controller {
     $user='1';
     $array=array('ID_USER'=>$user);
     $result=$this->collection_model->get_collections($array);
-    if(!empty($result)){
     $template['title']='Collection';
     $template['page']='Collection/collection_view.php';
     $template['data']=$result;
 	$this->load->view("template",$template);
 		
-    }else
-    echo 'empty';
+   
 }
     
 

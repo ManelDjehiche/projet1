@@ -17,14 +17,12 @@ class Products extends MY_Controller {
     /*$user=$this->session->userdata('user');*/
     $user='1';
     $result=$this->product_model->get_products($user);
-    if(!empty($result)){
+    $template['title']='Products';
+    $template['page']="product/product_view.php";
+    $template['data']=$result;   
+    $this->load->view("template",$template);
 
-        $template['title']='Products';
-        $template['page']="product/product_view.php";
-        $template['data']=$result;   
-        $this->load->view("template",$template);
-
-    }
+    
 		
     }
     
