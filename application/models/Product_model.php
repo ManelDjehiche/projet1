@@ -42,7 +42,8 @@ class Product_model extends CI_Model{
 
   function update_product($array){
     
-    $this->where('ID_PRODUCT',$array['ID_PRODUCT']);
+    $this->db->where('ID_PRODUCT',$array['ID_PRODUCT']);
+    var_dump($array);
     if($this->db->update('product',$array)) return true;
     else return false;
 
@@ -89,8 +90,10 @@ class Product_model extends CI_Model{
   }
 
   function generate_id(){
-    return uniqid(time().mt_rand(), true);
+    return md5(uniqid(time().mt_rand(), true));
   }
+
+
 
 
 }

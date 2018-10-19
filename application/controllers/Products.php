@@ -14,7 +14,8 @@ class Products extends MY_Controller {
 
 	public function index(){
     
-    $user=$this->session->userdata('user');
+    /*$user=$this->session->userdata('user');*/
+    $user='1';
     $result=$this->product_model->get_products($user);
     if(!empty($result)){
 
@@ -28,13 +29,19 @@ class Products extends MY_Controller {
     }
     
 
-    function create(){
+
+    function add(){
+       
         $template['title']='Products';
         $template['page']="product/add_product.php";
         $template['data']="";
         $this->load->view("template",$template);
 
+
+    }
+    function create(){
         
+        $error=false;
         $id_user=$this->session->userdata('user');
         $id_product=$this->product_model->generate_id();
         $id_shop=$this->session->userdata('shop');
@@ -57,16 +64,11 @@ class Products extends MY_Controller {
         $text_color=$this->input->post('TEXT_COLOR_PRODUCT');
         $require_information=$this->input->post('REQUIRE_INFORMATION_PRODUCT');
 
-
-        $submit=$this->input->post('SUBMIT');
-
-        if(isset($submit)){
-
         $array=array(
 
-            'ID_USER'=> $id_user,
+            'ID_USER'=> '1',
             'ID_PRODUCT'=> $id_product,
-            'ID_SHOP'=> $id_shop,
+            'ID_SHOP'=> '1',
             'ID_COLLECTION'=> $id_collection,
             'LIMIT_STOCK_PRODUCT'=> $limit_stock,
             'PRICE_PRODUCT'=> $price,
@@ -84,19 +86,28 @@ class Products extends MY_Controller {
             'ORDER_BUTTON_PRODUCT'=> $order_button,
             'COLOR_ORDER_BUTTON_PRODUCT'=> $color_order_button,
             'TEXT_COLOR_PRODUCT'=> $text_color,
-            'REQUIRE_INFORMATION_PRODUCT'=> $require_information
+            'REQUIRE_INFORMATION_PRODUCT'=> '22'
         
         );
 
+        if( empty($price)|| empty($title) ||  empty($image)){
+            $error= true;
+            echo '<span class="text-danger"> Fill in all feilds price , name  and image <span>';
+        }
+
+        echo $image;
+
+        if($error == false){
         $result=$this->product_model->insert_product($array);
         if($result){
-            echo 'produit crrer';
+            echo '<span class="text-success"> product created</span>';
         }
         
         else{
-           echo 'produit non crrer';
+           echo 'product can\'t be created now ';
         }
- 
+    }
+}
 
          /* inserer dans la petite table 
         $array2=array('ID_PRODUCT'=> $id_product);
@@ -112,11 +123,13 @@ class Products extends MY_Controller {
         }*/
 
 
-    }
-}
+    
+
    
        function update(){
         
+        
+        $error=false;
         $id_product=$this->input->post('ID_PRODUCT');
         $limit_stock=$this->input->post('LIMIT_STOCK_PRODUCT');
         $price=$this->input->post('PRICE_PRODUCT');
@@ -136,7 +149,6 @@ class Products extends MY_Controller {
         $text_color=$this->input->post('TEXT_COLOR_PRODUCT');
         $require_information=$this->input->post('REQUIRE_INFORMATION_PRODUCT');
 
-           if(isset($submit)){
    
                $array=array(
               
@@ -160,25 +172,35 @@ class Products extends MY_Controller {
                 'REQUIRE_INFORMATION_PRODUCT'=> $require_information           
                
                );
-       
+
+          
+        if( empty($price)|| empty($title) ||  empty($image)){
+                $error= true;
+                echo '<span class="text-danger"> Fill in all feilds price , name  and image <span>';
+            }
+
+            if( $error == false ){
                $result=$this->product_model->update_product($array);
                if($result){
-                   echo 'product modifié';
+                   echo '<span class="text-success"> Product updated </span>';
                }
                
                else{
-                  echo 'product non modifier';
+                  echo 'product can\'t be updated now';
                }
+
+              
+            }
        
-       }
+       
    }
 
     function delete(){
-    $id=$this->uri->segment(3);
+    $id=$this->input->post('ID_PRODUCT');
     $array=array('ID_PRODUCT' => $id);
     $result=$this->product_model->delete_product($array);
-    if($result) redirect(base_ur('products'));
-    else echo 'product non supprimé';
+    if($result) echo 'Product deleted';
+    else echo 'error product can\'t be deleted no';
 
    }
 
