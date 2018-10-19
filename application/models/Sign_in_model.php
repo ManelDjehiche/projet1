@@ -25,8 +25,15 @@ class Sign_in_model extends CI_Model{
     $this->db->where($where);
     $query=$this->db->get('user');
     $result=$query->result();
-    if(empty($result)) return array('status'=>'error','message'=>'email or password does not match');
-    else return array('status'=>'success','message'=>'you are logged','data'=>$result); 
+    if(empty($result)){
+      return array('status'=>'error','message'=>'email or password does not match');
+    } 
+    elseif ($result['0']->STATUS_ACCOUNT_USER==0) {
+      return array('status'=>'error','message'=>'your account is not activated, please activate your account','data'=>$result);
+    }else{
+      return array('status'=>'success','message'=>'you are logged','data'=>$result); 
+    }
+    
   }
 
   function get_user($array){
@@ -140,7 +147,12 @@ class Sign_in_model extends CI_Model{
   }
 
   function verify_email($email){
-    return true;
+    $data = array('STATUS_ACCOUNT_USER' => 1);
+    $this->db->where('md5(EMAIL_USER)',$email);
+    if($this->db->update('user', $data)){
+      return array('status'=>'success','message'=>'you account is activated');
+    }
+    return array('status'=>'error','message'=>'you account is not activated');
   }
 }
 
