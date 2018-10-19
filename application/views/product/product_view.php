@@ -6,11 +6,12 @@
     <div class="container">
 
       <!-- Page Heading -->
-      <h1>
-        <a href="<?php echo base_url()?>products/create" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add product</a>
-
+      <h1 class="my-4">All Products
+        <small>Secondary Text</small>
+        <a href="<?php echo base_url()?>products/add" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add product</a>
+      
       </h1>
-         
+
       <div class="row">
       <?php foreach( $data as $products){ ?>
         <div class="col-lg-4 col-sm-6 portfolio-item">
@@ -20,8 +21,8 @@
               <h4 class="card-title">
                 <a href="products/edit/<?php echo $products['ID_PRODUCT'] ?>"><?php echo $products['TITLE_PRODUCT'] ?></a>
               </h4>
-              <p class="card-text"><?php echo $products['DESCRIPTION_PRODUCT'] ?></p>
               <a onclick="delete_product('<?php echo $products['ID_PRODUCT'] ?>')" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Delete products</a>
+              <a href="<?php echo base_url() ; ?>products/edit/<?php echo $products['ID_PRODUCT'] ?>" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Edit</a>
 
             </div>
           </div>
@@ -41,8 +42,7 @@
 <script>
 function delete_product(id){
 alert('Are you sure ?');
-alert('1');
-var base_url='';
+var base_url='http://localhost/projet1/';
 $.ajax({
   url: base_url+'products/delete',
   type:'POST',

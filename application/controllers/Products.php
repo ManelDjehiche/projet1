@@ -128,6 +128,8 @@ class Products extends MY_Controller {
    
        function update(){
         
+        
+        $error=false;
         $id_product=$this->input->post('ID_PRODUCT');
         $limit_stock=$this->input->post('LIMIT_STOCK_PRODUCT');
         $price=$this->input->post('PRICE_PRODUCT');
@@ -147,7 +149,6 @@ class Products extends MY_Controller {
         $text_color=$this->input->post('TEXT_COLOR_PRODUCT');
         $require_information=$this->input->post('REQUIRE_INFORMATION_PRODUCT');
 
-           if(isset($submit)){
    
                $array=array(
               
@@ -171,17 +172,27 @@ class Products extends MY_Controller {
                 'REQUIRE_INFORMATION_PRODUCT'=> $require_information           
                
                );
-       
+
+          
+        if( empty($price)|| empty($title) ||  empty($image)){
+                $error= true;
+                echo '<span class="text-danger"> Fill in all feilds price , name  and image <span>';
+            }
+
+            if( $error == false ){
                $result=$this->product_model->update_product($array);
                if($result){
-                   echo 'Product updated';
+                   echo '<span class="text-success"> Product updated </span>';
                }
                
                else{
                   echo 'product can\'t be updated now';
                }
+
+              
+            }
        
-       }
+       
    }
 
     function delete(){

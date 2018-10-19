@@ -67,7 +67,7 @@
 
   <div class="form-group">
     <label for="exampleInputtext1">Background</label>
-    <select  class="form-control" name="BACKGROUND_PRODUCT" id="BACKGROUND_PRODUCT" onchange="changeFunc(value);">
+    <select  class="form-control" name="BACKGROUND" id="BACKGROUND" onchange="changeFunc(value);">
     <option value='' selected>select background type </option>
     <option value='image'>image</option>
     <option value='color'>color</option>
@@ -95,7 +95,7 @@
   
   <div class="form-group">
     <label for="exampleInputPassword1">Upload image backgound</label>
-    <input type="file" class="form-control" id="IMAGE_PRODUCT" name="IMAGE_PRODUCT">
+    <input type="file" class="form-control" id="BACKGROUND_PRODUCT" name="BACKGROUND_PRODUCT">
 
   </div>
 
@@ -129,11 +129,7 @@
 
     <div class="col-sm">    
 
-   <div class="form-group">
-    <label for="exampleInputPassword1">Amount</label>
-    <input type="text" class="form-control" id="COUNT_DOWN_PRODUCT" name="COUNT_DOWN_PRODUCT" value='' placeholder="amount">
- 
-  </div>
+  
 
     <div class="form-group">
     <label for="exampleInputtext1">Publish your prodyuct page</label>
@@ -170,7 +166,7 @@
  
   <button type="submit" class="btn btn-success">add product</button>
   </form>
-  <h5 id="form-message"> helllooo!! </h5>
+  <h5 id="form-message"> </h5>
 
 </div>
 <div><br><br><br></div>
@@ -180,7 +176,7 @@
 <script>
 
  function changeFunc(value){
-  var selectBox = document.getElementById("BACKGROUND_PRODUCT").value;
+  var selectBox = document.getElementById("BACKGROUND").value;
   if( selectBox == 'image'){
     document.getElementById("background_image").style.display = "block";
     document.getElementById("background_color").style.display = "none";
@@ -231,7 +227,7 @@ $(document).ready(function() {
                       'ORDER_BUTTON_PRODUCT': button_order,
                       'COLOR_ORDER_BUTTON_PRODUCT': button_color,
                       'TEXT_COLLOR_PRODUCT' :text_color,
-                      'IMAGE_PRODUCT':image,
+                      'IMAGE_PRODUCT':'5252525',
                       'STATUS_PRODUCT':status,
                   
                       

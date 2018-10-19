@@ -20,7 +20,7 @@ class Collection_model extends CI_Model{
 
   }
 
-   function get_collection($array){
+   function get_collections($array){
      
      $this->db->where($array);
      $query=$this->db->get('collection');
@@ -39,12 +39,12 @@ class Collection_model extends CI_Model{
   }
 
 
-  function get_products_collection($user){
+  function get_products_collection($array){
     
     $this->db->select('*');
     $this->db->from('collection');
     $this->db->join('product','product.ID_COLLECTION = collection.ID_COLLECTION');
-    $this->db->where('collection.ID_USER',$user);
+    $this->db->where($array);
     $query=$this->db->get();
     $result=$query->result_array();
     return $result;
@@ -55,7 +55,7 @@ class Collection_model extends CI_Model{
   function update_collection($array){
   
     /* prend les attribut a modeifier */
-    $this->db->where($array);
+    $this->db->where('ID_COLLECTION',$array['ID_COLLECTION']);
     if($this->db->update('collection',$array)) return true;
     else return false;
 
@@ -73,6 +73,14 @@ class Collection_model extends CI_Model{
 
   function generate_id(){
     return md5(uniqid(time().mt_rand(), true));
+  }
+
+  function update_product($array){
+    
+    $this->db->where('ID_PRODUCT',$array['ID_PRODUCT']);
+    if($this->db->update('product',$array)) return true;
+    else return false;
+
   }
 
 }

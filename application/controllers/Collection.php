@@ -16,11 +16,20 @@ class Collection extends MY_Controller {
 	public function index()
 	{
 
+
+    /*$user=$this->session->userdata('user');*/
+    $user='1';
+    $array=array('ID_USER'=>$user);
+    $result=$this->collection_model->get_collections($array);
+    if(!empty($result)){
     $template['title']='Collection';
     $template['page']='Collection/collection_view.php';
+    $template['data']=$result;
 	$this->load->view("template",$template);
 		
-    }
+    }else
+    echo 'empty';
+}
     
 
     public function create(){
@@ -29,7 +38,7 @@ class Collection extends MY_Controller {
        
         /*$id_user=$this->session->userdata('user');*/
         $id_collection=$this->collection_model->generate_id();
-        echo 'idddd collection'.$id_collection;
+    
         /*$id_shop=$this->session->userdata('shop');*/
         $id_user='1';
         $id_shop='1';
@@ -50,7 +59,7 @@ class Collection extends MY_Controller {
         if($erroempty == false){
         $array=array(
 
-            'ID_COLLECTION'=> '6',
+            'ID_COLLECTION'=> $id_collection,
             'ID_USER'=> $id_user,
             'ID_SHOP'=> $id_shop,
             'NAME_COLLECTION'=> $name,
@@ -83,6 +92,7 @@ class Collection extends MY_Controller {
 
     function update(){
 
+        $error=false;
         $id_collection=$this->input->post('ID_COLLECTION');   
         $name=$this->input->post('NAME_COLLECTION');      
         $description=$this->input->post('DESCRIPTION_COLLECTION');
@@ -92,7 +102,7 @@ class Collection extends MY_Controller {
         $button_color_collection=$this->input->post('BUTTON_COLLOR_COLLECTION');
 
         
-        if(isset($submit)){
+
 
             $array=array(
                 'ID_COLLECTION' => $id_collection,
@@ -104,24 +114,30 @@ class Collection extends MY_Controller {
                 'BUTTON_COLLOR_COLLECTION'=> $button_color_collection           
             
             );
-    
+
+            if(empty($name)){
+                echo '<span class="text-danger"> Fill in name collection !</span>'; 
+                $erroempty= true;
+                }
+            if($error == false){
             $result=$this->collection_model->update_collection($array);
             if($result){
-                echo 'collection modifié';
+                echo '<span class="text-success"> Collection updated</span>'; 
             }
             
             else{
                echo 'collection non modifier';
             }
+            
+        }
     
-    }
 }
 
     function delete(){
-    $id = $this->uri->segment(3);
+    $id = $this->input->post('ID_COLLECTION');
     $array=array('ID_COLLECTION' => $id);
     $result=$this->collection_model->delete_collection($array);
-    if($result) redirect(base_ur('collection'));
+    if($result) echo 'collection deleted';
     else echo 'collection non supprimé';
 
    }
@@ -130,10 +146,10 @@ class Collection extends MY_Controller {
 
    function products(){
     $id=$this->uri->segment(3);
-    $array=array('ID_COLLECTION' => $id);
+    $array=array('collection.ID_COLLECTION' => $id);
     $result=$this->collection_model->get_products_collection($array);
     if(!empty($result)){
-    $template['title']='Products in'.''.$result->NAME_COLLECTION;
+    $template['title']='Products in'.''.$result[0]['NAME_COLLECTION'];
     $template['page']='Collection/products_in_collection';
     $template['data']=$result;
     $this->load->view('template',$template);
@@ -146,8 +162,6 @@ class Collection extends MY_Controller {
     $id=$this->uri->segment(3);
     $array=array('ID_COLLECTION' => $id);
     $result=$this->collection_model->get_one_collection($array);
-    var_dump($result);
-    echo "heeeeeeeere".$result[0]['NAME_COLLECTION'];
     if(!empty($result)){
     $template['title']='collection';
     $template['page']='Collection/edit_collection';
@@ -164,6 +178,17 @@ class Collection extends MY_Controller {
     $template['data']='';
     $this->load->view('template',$template);
     
+
 }
+
+
+ public function delete_from_collection(){
+
+    $id=$this->input->post('ID_PRODUCT');
+    $array=array('ID_COLLECTION'=> NULL, 'ID_PRODUCT' => $id );
+    $result=$this->collection_model->update_product($array);
+    if($result) echo 'Product deleted from this collection';
+    else 'product can\'t be deleted now ! ';
+ }
 }
 ?>
