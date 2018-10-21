@@ -23,6 +23,7 @@ class Product_model extends CI_Model{
    function get_products($user){
      
      $this->db->where('ID_USER',$user);
+     $this->db->order_by("ID_PRODUCT", "desc");
      $query=$this->db->get('product');
      $result=$query->result_array();
      return $result;
@@ -43,7 +44,6 @@ class Product_model extends CI_Model{
   function update_product($array){
     
     $this->db->where('ID_PRODUCT',$array['ID_PRODUCT']);
-    var_dump($array);
     if($this->db->update('product',$array)) return true;
     else return false;
 

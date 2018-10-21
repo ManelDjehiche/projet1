@@ -48,6 +48,8 @@ $.ajax({
   data:{'ID_PRODUCT': id},
   success:function(data){
    alert(data);
+   var delay = 1000; 
+  setTimeout(function(){ window.location = '<?php echo base_url(); ?>collection/products/'+id; }, delay);            
   },
   error:function(data){
     alert(data.responseText);

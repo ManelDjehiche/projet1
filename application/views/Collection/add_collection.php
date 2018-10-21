@@ -96,7 +96,7 @@
 
 <script>
 $(document).ready(function() {
-   $("form#data").submit(function(event){
+    $("form#data").submit(function(event){
      var name=$('#NAME_COLLECTION').val();
      var description=$('#DESCRIPTION_COLLECTION').val();
      var header=$('#HEADER_COLLECTION').val();
@@ -114,14 +114,24 @@ $(document).ready(function() {
                       'BLURRY_IMAGE_COLLECTION': blurry_image,
                       'BUTTON_COLLOR_COLLECTION': button_color
                  },
-            success:function (data) {             
-                $('#form-message').html(data);
-            },
-            error:function(data){
+            success:function (data) { 
+                
+               
+                if(data.result =='yes'){
+                $('#form-message').html(data.data);
+                var delay = 1000; 
+                setTimeout(function(){ window.location = '<?php echo base_url(); ?>collection'; }, delay); 
+
+               }if(data.result =='no') $('#form-message').html(data.data);
+                             
+               },
+                error:function(data){
               alert(data.responseText);
             }
         });
 
    });
 });
+
+
 </script>

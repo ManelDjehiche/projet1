@@ -38,7 +38,8 @@ class Products extends MY_Controller {
 
     }
     function create(){
-        
+        header('Content-type: application/json');
+
         $error=false;
         $id_user=$this->session->userdata('user');
         $id_product=$this->product_model->generate_id();
@@ -90,15 +91,24 @@ class Products extends MY_Controller {
 
         if( empty($price)|| empty($title) ||  empty($image)){
             $error= true;
-            echo '<span class="text-danger"> Fill in all feilds price , name  and image <span>';
+            echo json_encode(
+                array(
+                  'result' => 'no',
+                  'data' => '<span class="text-danger"> Fill in all feilds price , name  and image <span>'
+                  )
+                );
         }
-
-        echo $image;
 
         if($error == false){
         $result=$this->product_model->insert_product($array);
         if($result){
-            echo '<span class="text-success"> product created</span>';
+            echo json_encode(
+                array(
+                  'result' => 'yes',
+                  'data' => '<span class="text-success"> product created</span>'
+                  )
+                );
+            
         }
         
         else{
@@ -126,7 +136,8 @@ class Products extends MY_Controller {
    
        function update(){
         
-        
+        header('Content-type: application/json');
+
         $error=false;
         $id_product=$this->input->post('ID_PRODUCT');
         $limit_stock=$this->input->post('LIMIT_STOCK_PRODUCT');
@@ -174,13 +185,23 @@ class Products extends MY_Controller {
           
         if( empty($price)|| empty($title) ||  empty($image)){
                 $error= true;
-                echo '<span class="text-danger"> Fill in all feilds price , name  and image <span>';
+                echo json_encode(
+                    array(
+                      'result' => 'no',
+                      'data' =>  '<span class="text-danger"> Fill in all feilds price , name  and image <span>'
+                      )
+                    );
             }
 
             if( $error == false ){
                $result=$this->product_model->update_product($array);
                if($result){
-                   echo '<span class="text-success"> Product updated </span>';
+                   echo json_encode(
+                    array(
+                      'result' => 'yes',
+                      'data' => '<span class="text-success"> Product updated </span>'
+                      )
+                    );
                }
                
                else{

@@ -47,7 +47,8 @@ $.ajax({
   type:'POST',
   data:{'ID_COLLECTION': id},
   success:function(data){
-   alert(data);
+   var delay = 0; 
+   setTimeout(function(){ window.location = '<?php echo base_url(); ?>collection'; }, delay); 
   },
   error:function(data){
     alert(data.responseText);

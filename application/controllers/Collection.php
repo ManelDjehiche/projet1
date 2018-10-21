@@ -31,7 +31,7 @@ class Collection extends MY_Controller {
     
 
     public function create(){
-    
+    header('Content-type: application/json');
     $erroempty=false;
        
         /*$id_user=$this->session->userdata('user');*/
@@ -49,7 +49,12 @@ class Collection extends MY_Controller {
         
        
         if(empty($name)){
-        echo '<span class="text-danger"> Fill in name collection !</span>'; 
+        echo json_encode(
+            array(
+              'result' => 'no',
+              'data' => '<span class="text-danger"> Fill in name collection !</span>'
+              )
+            );
         $erroempty= true;
         }
 
@@ -73,7 +78,12 @@ class Collection extends MY_Controller {
         
         $result=$this->collection_model->insert_collection($array);
         if($result){
-            echo '<b><span class="text-success">Collection'.' "'.$name.'" '.'created</span></b>';
+            echo json_encode(
+                array(
+                  'result' => 'yes',
+                  'data' => '<span class="text-success"> Collection created !</span>'
+                  )
+                );
         }
         
         else{
@@ -81,7 +91,7 @@ class Collection extends MY_Controller {
         }
 
     }
-        echo '';
+        
 
         }
     
@@ -89,6 +99,7 @@ class Collection extends MY_Controller {
 
 
     function update(){
+        header('Content-type: application/json');
 
         $error=false;
         $id_collection=$this->input->post('ID_COLLECTION');   
@@ -114,22 +125,36 @@ class Collection extends MY_Controller {
             );
 
             if(empty($name)){
-                echo '<span class="text-danger"> Fill in name collection !</span>'; 
-                $erroempty= true;
+               $error= true;
+               echo json_encode(
+                array(
+                  'result' => 'no',
+                  'data' =>  '<span class="text-danger"> Fill in name collection!</span>'
+                  )
+                );
+                
                 }
+
             if($error == false){
             $result=$this->collection_model->update_collection($array);
             if($result){
-                echo '<span class="text-success"> Collection updated</span>'; 
+                echo json_encode(
+                    array(
+                      'result' => 'yes',
+                      'data' =>  '<span class="text-success"> Collection updated</span>'
+                      )
+                    );
             }
             
             else{
                echo 'collection non modifier';
             }
-            
         }
+    }
+            
+
     
-}
+
 
     function delete(){
     $id = $this->input->post('ID_COLLECTION');

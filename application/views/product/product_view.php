@@ -21,7 +21,7 @@
               <h4 class="card-title">
                 <a href="products/edit/<?php echo $products['ID_PRODUCT'] ?>"><?php echo $products['TITLE_PRODUCT'] ?></a>
               </h4>
-              <a onclick="delete_product('<?php echo $products['ID_PRODUCT'] ?>')" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Delete products</a>
+              <a onclick="delete_product('<?php echo $products['ID_PRODUCT'] ?>')" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Delete</a>
               <a href="<?php echo base_url() ; ?>products/edit/<?php echo $products['ID_PRODUCT'] ?>" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Edit</a>
 
             </div>
@@ -48,7 +48,8 @@ $.ajax({
   type:'POST',
   data:{'ID_PRODUCT': id},
   success:function(data){
-   alert(data);
+   var delay = 0; 
+  setTimeout(function(){ window.location = '<?php echo base_url(); ?>products'; }, delay); 
   },
   error:function(data){
     alert(data.responseText);

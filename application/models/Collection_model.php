@@ -23,6 +23,7 @@ class Collection_model extends CI_Model{
    function get_collections($array){
      
      $this->db->where($array);
+     $this->db->order_by("ID_COLLECTION", "desc");
      $query=$this->db->get('collection');
      $result=$query->result_array();
      return $result;

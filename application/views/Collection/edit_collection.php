@@ -95,7 +95,13 @@ $(document).ready(function() {
                       'BUTTON_COLLOR_COLLECTION': button_color
                  },
             success:function (data) {             
-                $('#form-message').html(data);
+              if(data.result =='yes'){
+                $('#form-message').html(data.data);
+                var delay = 1000; 
+                setTimeout(function(){ window.location = '<?php echo base_url(); ?>collection'; }, delay); 
+
+               }if(data.result =='no') $('#form-message').html(data.data);
+                                
             },
             error:function(data){
               alert(data.responseText);
